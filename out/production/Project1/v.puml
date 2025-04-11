@@ -1,0 +1,54 @@
+@startuml
+
+skinparam backgroundColor white
+skinparam activityBackgroundColor white
+skinparam activityBorderColor black
+skinparam arrowColor black
+skinparam linetype ortho
+skinparam dpi 300
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+start
+
+:Initialize System;
+
+repeat
+  :Display Main Menu;
+  :Get User Choice;
+  
+  switch (Choice)
+  case (Display Inventory)
+    :Show All Books;
+  case (Place Order)
+    :Create New Order;
+    :Add Books to Order;
+    :Queue Order for Processing;
+  case (Process Orders)
+    :Take Next Order from Queue;
+    :Update Inventory;
+    :Mark Order as Processed;
+  case (Search Books)
+    :Select Search Criteria;
+    :Apply Search Algorithm;
+    :Display Results;
+  case (Sort Inventory)
+    :Select Sort Criteria;
+    :Choose Sorting Algorithm;
+    :Apply Sort Algorithm;
+    :Display Sorted Books;
+  case (View Orders)
+    :Show Order History;
+  case (Add New Book)
+    :Get Book Details;
+    :Validate Input;
+    :Add to Inventory;
+  case (Exit)
+    :Terminate Program;
+  endswitch
+  
+repeat while (User wants to continue?) is (Yes)
+
+stop
+
+@enduml
